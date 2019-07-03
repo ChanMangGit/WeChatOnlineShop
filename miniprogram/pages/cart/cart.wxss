@@ -1,0 +1,34 @@
+/* 购物车复选框默认样式 */
+.van-checkbox__icon-wrap{
+  margin-top:80rpx;
+  margin-left:10rpx;
+}
+.submit .van-checkbox__icon-wrap{
+  margin-top:0rpx;
+  margin-left:10rpx;
+}
+/* 复选框上边距 */
+.productCard{
+  margin-top:20rpx;
+}
+.van-card{
+  width: 700rpx;
+}
+/* 默认显示 */
+.showCart{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.showCartImg{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx auto;
+}
+.showCartText{
+  font-size: 30rpx;
+  color: #E54847; 
+}
+.placeHolder{
+  height: 200rpx;
+}

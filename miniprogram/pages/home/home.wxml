@@ -1,0 +1,67 @@
+<!-- 搜索框 -->
+<!-- value:当前输入的值 -->
+<van-search value="{{ value }}" placeholder="只能搜HUAWEI P30/P20/P30 Pro/p20 Pro" bind:search="onSearch"/>
+<!-- 轮播图 -->
+<!-- indicator-dits:面板指示点  autoplay:自动播放 circular:衔接滑动 -->
+<swiper indicator-dots='true' autoplay='true' circular='true' class='swiper' indicator-active-color="#fff">
+  <swiper-item wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <image src='{{item}}' class="slide-image"></image>
+  </swiper-item>
+</swiper>
+<!-- 官方正品 正品保证 售后无忧 -->
+<!-- 4个跳转导航 -->
+<view>
+  <!-- 承诺 弹性 -->
+  <view class='promise'>
+    <view>
+      <image src='../../images/promise.png' class='promise-image'></image>
+      <text class='promise-text'>官方商城</text>
+    </view>
+    <view>
+      <image src='../../images/promise.png' class='promise-image'></image>
+      <text class='promise-text'>正品保障</text>
+    </view>
+    <view>
+      <image src='../../images/promise.png' class='promise-image'></image>
+      <text class='promise-text'>售后无忧</text>
+    </view>    
+  </view>
+  <!-- 4个跳转导航 图片+文字 -->
+  <view class='nav'>
+    <view class='nav-sm'>
+      <image src='../../images/invite.png' class='nav-image'></image>
+      <text class='nav-text'>邀请有礼</text>
+    </view>
+    <view class='nav-sm'>
+      <image src='../../images/vip.png' class='nav-image'></image>
+      <text class='nav-text'>会员领劵</text>
+    </view>
+    <view class='nav-sm'>
+      <image src='../../images/exchange.png' class='nav-image'></image>
+      <text class='nav-text'>以旧换新</text>
+    </view>
+    <view class='nav-sm'>
+      <image src='../../images/publicServer.png' class='nav-image'></image>
+      <text class='nav-text'>新品众测</text>
+    </view>
+  </view>
+</view>
+<!-- 商品列表 -->
+<view class='productList'>
+  <!-- 浮动 -->
+  <view wx:for="{{productFamily}}" wx:key="{{index}}" style='background-color:rgba({{r}},{{g*index}},{{b*index}},0.2)' class="productBorder"  bindtap='jumpDetail' data-fid="{{item.fid}}"> 
+    <!-- 点击跳转 -->
+    <view class='detailJump' data-fid="{{item.fid}}">
+      <!-- 商品名 -->
+      <view class='productName' data-fid="{{item.fid}}">{{item.name}}</view>
+      <!-- 价格 -->
+      <view class='productPrice' data-fid="{{item.fid}}">¥{{item.price}}起</view>
+      <!-- 标签 -->
+      <van-tag mark type="danger" data-fid="{{item.fid}}">{{label[index]}}</van-tag>
+      <!-- 图片 -->
+      <view class='productPic' data-fid="{{item.fid}}">
+        <image src='{{item.picUrl}}' data-fid="{{item.fid}}"></image>
+      </view>     
+    </view>
+  </view>
+</view>

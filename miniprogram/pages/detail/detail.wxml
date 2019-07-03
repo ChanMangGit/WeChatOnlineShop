@@ -1,0 +1,108 @@
+<!-- 商品详细，根据id跳转 -->
+<!-- 顶部面板 弹性、固定-->
+<!-- 商品 评价 参数 详情 分享 -->
+<view class='detailNav'>
+  <!-- notify顶部弹出提示框 -->
+  <van-notify id="custom-selector" />
+  <van-dialog id="van-dialog" />
+  <!-- 切换按钮 -->
+  <view class='navBtn'>
+    <view class="{{active==0?'selected':'normal'}}" id='0' bindtap='nav'>商品</view>
+    <view class="{{active==1?'selected':'normal'}}" id='1' bindtap='nav'>评价</view>
+    <view class="{{active==2?'selected':'normal'}}" id='2' bindtap='nav'>参数</view>
+    <view class="{{active==3?'selected':'normal'}}" id='3' bindtap='nav'>详情</view>
+    <!-- 分享按钮 -->
+    <button open-type='share' class='share'>
+      <image src='../../images/share.png' class='shareImg'></image>
+    </button>
+  </view>
+  <!-- 切换内容 -->
+  <view class='content'>
+    <!-- current:当前所在滑块的页面 根据id -->
+    <!-- vertical:滑动方向是否为纵向 -->
+    <!-- swiper高度自适应 -->
+    
+    <swiper current='{{currentTab}}' class='panel'  style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+      <swiper-item id="0"  catchtouchmove="false">
+      <scroll-view scroll-y="true">
+        <!-- 轮播图 -->
+        <view class='swiperBorder'>
+          <!-- indicator-dits:面板指示点  autoplay:自动播放 circular:衔接滑动 -->
+          <swiper indicator-dots='true' autoplay='true' circular='true' class='swiper' indicator-active-color="#fff">
+            <swiper-item wx:for="{{productPic}}" wx:key="{{index}}">
+              <image src='{{item.picUrl}}' class="slideImg"></image>
+            </swiper-item>
+          </swiper>
+        </view>
+        <!-- 商品信息 -->
+        <!-- 循环product -->
+        <view wx:for="{{product}}" wx:key="index" class='productInfo'>
+            <view class='price'>¥{{item.price}}</view> 
+            <view class='title'>{{item.title}}</view>
+            <view class='subtitle'>{{item.subtitle}}</view>  
+            <!-- 分隔空view -->
+            <view class='separate'></view>
+            <!-- 规格 -->
+            <view class="specBorder">
+              <view class='spec'>规格</view>
+              <view class="specBorderRight">
+                <view wx:for="{{productSpec}}" wx:key="index" wx:for-item="spec" class='specBtnBorder' bindtap='spec'>
+                  <view class="{{select==index?'selectBtn':'specBtn'}}" data-spec="{{spec.spec}}" data-pid="{{spec.pid}}" data-index="{{index}}">{{spec.spec}}</view>
+                </view> 
+              </view>             
+            </view> 
+            <!-- 分隔空view -->
+            <view class='separate'></view>
+            <!-- 数量按钮 -->
+            <view class='totalBuy'>
+              <view class='count'>数量</view>
+              <!-- 按钮 -->
+              <view class="countBtn">
+                <!-- 减号 -->
+                <view class='countBtnBorder' bindtap='sub'>
+                  <image src='../../images/sub.png'></image>
+                </view>
+                <!-- 数字 -->
+                <view class="countNum">{{num}}</view>               
+                <!-- 加号 -->
+                <view class='countBtnBorder' bindtap='add'>
+                  <image src='../../images/add.png'></image>
+                </view>
+              </view>
+            </view>
+        </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item id="1"  catchtouchmove="false">评价</swiper-item>
+      <swiper-item id="2"  catchtouchmove="false">参数</swiper-item>
+      <swiper-item id="3"  catchtouchmove="false">详情</swiper-item>
+    </swiper>
+  </view>
+</view>
+
+
+
+
+<!-- 底部 -->
+<van-goods-action>
+  <van-goods-action-icon
+    icon="chat-o"
+    text="客服"
+    bind:click="onClickIcon"
+  />
+  <van-goods-action-icon
+    icon="cart-o"
+    text="购物车"
+    bind:click="onClickIcon"
+  />
+  <van-goods-action-button
+    text="加入购物车"
+    type="warning"
+    bindtap="addCart"
+    
+  />
+  <van-goods-action-button
+    text="立即购买"
+    bind:click="onClickButton"
+  />
+</van-goods-action>

@@ -1,0 +1,59 @@
+<!--pages/cart/cart.wxml-->
+<!-- 购物车 -->
+<!-- 默认显示 -->
+<view wx:if="{{isShow}}" class='showCart'>
+  <image src='../../images/cart.png' class='showCartImg'></image>
+  <view class='showCartText'>购物车为空，去逛逛呗...</view>
+</view>
+<!-- 空和未登录状态隐藏 -->
+<view wx:for="{{cart}}" wx:key="index" class='productCard' wx:if="{{isHide}}">
+  <!-- 复选框组 -->
+  <van-checkbox-group value="{{result}}" bind:change="onChange">
+    <van-checkbox checked-color="#07c160" name="{{index}}" label-disabled="true">
+      <!-- 商品卡片 -->
+      <van-card
+        num="{{item.count}}"
+        tag="hot"
+        price="{{item.price}}"
+        desc="{{item.spec}}"
+        title="{{item.title}}"
+        thumb="{{item.productPic}}"
+      >
+        <view slot="footer">
+          <van-button size="mini" bindtap='del' data-num='{{index}}'>删除</van-button>
+        </view>
+      </van-card>  
+    </van-checkbox>
+  </van-checkbox-group>
+  <!-- SubmitBar 提交订单栏 -->
+  <van-submit-bar
+    price="{{total}}"
+    button-text="提交订单"
+    bind:submit="onClickButton"
+    tip="{{ true }}"
+    class="submit"
+  >
+    <van-tag type="primary">
+      <van-checkbox checked-color="#07c160"  value="{{selectAll}}" bind:change="selectAll">
+        全选
+      </van-checkbox>
+    </van-tag>
+    <view slot="tip" bindtap='open'>
+      您的收货地址不支持同城送,点击修改地址
+    </view>
+  </van-submit-bar>
+</view>
+<!-- 占位200rpx -->
+<view class='placeHolder'></view>
+<!-- 删除确认取消弹框 -->
+<van-dialog id="van-dialog" />
+<!-- popup弹出 -->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  bind:click-overlay="onClose"
+>
+  <van-area area-list="{{ areaList }}" columns-num="{{ 3 }}" title="修改地址" bind:cancel="onClose" bind:confirm="onClose"/>
+</van-popup>

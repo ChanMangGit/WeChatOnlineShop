@@ -1,0 +1,144 @@
+scroll-view{
+  width: 100%;
+  height: 90%;
+}
+/* 分隔样式 */
+.separate{
+  width: 100%;
+  height: 10rpx;
+  background-color: #dbdbdb;
+
+}
+/* 切换按钮 */
+.navBtn{
+  display: flex;
+  justify-content: space-around;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+.navBtn view{
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 25%;
+}
+.selected{
+  background-color: #fff;
+  border-bottom: 2px solid #E54847;
+  font-weight: bold;
+  color: #E54847;
+}
+.normal{
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* 分享按钮 */
+.share{
+  width:25%;
+  height: 80rpx;
+  margin: 0;
+  padding: 0;
+}
+.shareImg{
+  width:40rpx;
+  height:40rpx;
+}
+/* 轮播图 */
+.swiperBorder{
+  height: 600rpx;
+}
+.swiper{
+  height: 600rpx !important;
+}
+.slideImg{
+  width: 100%;
+  height: 100%;
+}
+/* 商品详情信息 */
+.productInfo{
+  margin:0 3%;
+}
+.price{
+  margin-top: 10rpx;
+  color:#FF6A6E;
+  font-weight: bold;
+}
+.title{
+  color: #000;
+  font-size: 33rpx;
+  font-weight: bold;
+}
+.subtitle{
+  color:#333;
+  font-size: 30rpx;
+  margin-bottom:10rpx;
+}
+/* 规格 */
+.specBorder{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+.spec,.count{
+  text-align: center;
+  font-size: 30rpx;
+  color: #8b8b8b;
+  width: 30%;
+}
+.specBorderRight{
+  width: 70%;
+}
+.specBtnBorder{ 
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.specBtnBorder:nth-child(1){
+  margin-top:0;
+}
+.selectBtn{
+  font-size: 30rpx;
+  color: #FF6A6E;
+  border: 1px solid #FF6A6E;
+  border-radius: 40rpx;
+  text-align: center;
+  padding: 10rpx;
+  width: 350rpx;
+}
+.specBtn{
+  font-size: 30rpx;
+  color: #8a8a8a;
+  border: 1px solid #dbdbdb;
+  border-radius: 40rpx;
+  text-align: center;
+  padding: 10rpx;
+  width: 350rpx;
+}
+/* 数量按钮 */
+.totalBuy{
+  display: flex;
+  margin-top:10rpx;
+}
+.countBtn{
+  display: flex;
+  width: 70%;
+}
+.countBtnBorder{
+  width: 50rpx;
+  height: 50rpx;
+}
+.countBtnBorder>image{
+  width: 100%;
+  height: 100%;
+}
+.countNum{
+  width: 0 10rpx;
+  color: #8a8a8a;
+}
+/* 通知弹出框默认样式 */
+.van-dialog__message{
+  font-size: 30rpx;
+}

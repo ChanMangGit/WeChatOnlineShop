@@ -1,0 +1,64 @@
+.productNav{
+  display: flex;
+  flex-direction: row;
+  font-family: "Microsoft YaHei"
+}
+.left{
+  width: 25%;
+  font-size: 30rpx;
+  background-color: #f4f4f4;
+}
+.left view{
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.selected{
+  background-color: #fff;
+  border-left: 2px solid #E54847;
+  font-weight: bold;
+  color: #E54847;
+}
+.normal{
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #f2f2f2;
+}
+.right{
+  width:75%;
+  margin: 0;
+}
+swiper{
+  height: 500px;
+}
+swiper-item{
+  text-align: center;
+}
+/* 标题 */
+.title{  
+  font-size: 40rpx;
+  color: #666;
+}
+/* 商品列表 弹性 */
+.productList{
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin:10rpx 3%;
+}
+/* 商品按钮连接 */
+.productBtn{
+  display: flex;
+  flex-direction: column;  
+}
+/* 商品图片 */
+.productImage{
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+}
+/* 商品名 */
+.productName{
+  font-size: 30rpx;
+  color: #333;
+}

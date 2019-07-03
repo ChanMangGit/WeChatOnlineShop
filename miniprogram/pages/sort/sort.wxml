@@ -1,0 +1,43 @@
+<!-- 搜索框 -->
+<van-search value="{{ value }}" placeholder="只能搜HUAWEI P30/P20/P30 Pro/p20 Pro" bind:search="onSearch"/>
+<!-- 分类商品列表 左侧导航栏 右侧商品 -->
+<view class='productNav'>
+  <!-- 左侧 -->
+  <view class='left'>
+    <view class="{{active==0?'selected':'normal'}}" id="0" bindtap='switchNav'>为您推荐</view>
+    <view class="{{active==1?'selected':'normal'}}" id="1" bindtap='switchNav'>华为手机</view>
+    <view class="{{active==2?'selected':'normal'}}" id="2" bindtap='switchNav'>荣耀手机</view>
+  </view>
+  <!-- 右侧 -->
+  <view class='right'>
+    <view class='type'>
+      <!-- current:当前所在滑块的 index -->
+      <!-- vertical:滑动方向是否为纵向 -->
+      <swiper current='{{currentTab}}' vertical='{{true}}'>
+        <!-- catchtouchmove 阻止弹窗后滚动穿透 -->
+        <swiper-item id="0" catchtouchmove="false">
+          <text class='title'>—  热销推荐  —</text>
+          <view class='productList'>
+            <!-- 循环productFamily 获取商品图片和名字 -->
+            <view wx:for="{{productFamily}}" wx:key="index">
+              <!-- 点击跳转到商品详情 自定义属性传参 -->
+              <view class='productBtn' bindtap='jumpDetail'>
+                <!-- 图片 -->
+                <image src='{{item.picUrl}}' class='productImage' data-fid='{{item.fid}}'></image>
+                <!-- 商品名 -->
+                <text class='productName' data-fid='{{item.fid}}'>{{item.name}}</text>
+              </view>            
+            </view>
+          </view>
+          
+        </swiper-item>
+        <swiper-item id="1" catchtouchmove="false">
+          华为手机
+        </swiper-item>
+        <swiper-item id="2" catchtouchmove="false">
+          荣耀手机
+        </swiper-item>
+      </swiper> 
+    </view>
+  </view>
+</view>
