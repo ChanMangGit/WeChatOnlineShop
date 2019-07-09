@@ -8,9 +8,9 @@
   <!-- 切换按钮 -->
   <view class='navBtn'>
     <view class="{{active==0?'selected':'normal'}}" id='0' bindtap='nav'>商品</view>
-    <view class="{{active==1?'selected':'normal'}}" id='1' bindtap='nav'>评价</view>
+    <view class="{{active==1?'selected':'normal'}}" id='1' bindtap='nav'>详情</view>
     <view class="{{active==2?'selected':'normal'}}" id='2' bindtap='nav'>参数</view>
-    <view class="{{active==3?'selected':'normal'}}" id='3' bindtap='nav'>详情</view>
+    <view class="{{active==3?'selected':'normal'}}" id='3' bindtap='nav'>评论</view>
     <!-- 分享按钮 -->
     <button open-type='share' class='share'>
       <image src='../../images/share.png' class='shareImg'></image>
@@ -20,8 +20,7 @@
   <view class='content'>
     <!-- current:当前所在滑块的页面 根据id -->
     <!-- vertical:滑动方向是否为纵向 -->
-    <!-- swiper高度自适应 -->
-    
+    <!-- swiper高度自适应 -->  
     <swiper current='{{currentTab}}' class='panel'  style="height: {{clientHeight?clientHeight+'px':'auto'}}">
       <swiper-item id="0"  catchtouchmove="false">
       <scroll-view scroll-y="true">
@@ -73,9 +72,33 @@
         </view>
         </scroll-view>
       </swiper-item>
-      <swiper-item id="1"  catchtouchmove="false">评价</swiper-item>
+      <swiper-item id="1"  catchtouchmove="false">
+        <!-- 视频 -->
+        <view wx:for="{{product}}" wx:key="index">
+          <view wx:if="{{isShow}}">
+            <video src='{{item.video}}' autoplay="{{auto}}" loop="true" class='productVideo'></video> 
+          </view>
+          <view class='noWifi' wx:else>
+              <!-- 文字 -->
+              <view class='coverText'>
+                您当前正在使用移动网络，继续播放将消耗流量！
+              </view>
+              <!-- 按钮 -->
+              <view class='coverBtnBorder'>
+                <!-- 取消按钮 -->
+                <view bindtap='cancel' class='coverBtn'>
+                  <image src='../../images/cancel.png'></image>
+                </view>
+                <!-- 确定按钮 -->
+                <view bindtap='confirm' class='coverBtn'>
+                  <image src='../../images/confirm.png'></image>
+                </view>
+              </view>
+            </view>      
+        </view>
+      </swiper-item>
       <swiper-item id="2"  catchtouchmove="false">参数</swiper-item>
-      <swiper-item id="3"  catchtouchmove="false">详情</swiper-item>
+      <swiper-item id="3"  catchtouchmove="false">评论</swiper-item>
     </swiper>
   </view>
 </view>

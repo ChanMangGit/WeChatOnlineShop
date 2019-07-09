@@ -12,17 +12,24 @@ Page({
   },
   // 搜索
   onSearch: function (event) {
+    var fid = [];
     // event.detail为输入的值
-    console.log(event.detail)
+    console.log(event.detail);
     var name = event.detail;
     // 根据输入的商品名查询productFamily表找出对应的fid
-    db.collection("productFamily").field({
-      fid: true
-    }).where({ name: name }).get().then(res => {
-      console.log(res.data[0].fid)
-      var fid = res.data[0].fid;
+    db.collection("productFamily").where({
+      name: db.RegExp({
+        regexp: name,
+        options: "i"
+      })
+    }).get().then(res => {
+      for (var num in res.data) {
+        // console.log(res.data[num].fid)
+        fid.push(res.data[num].fid)
+      }
+      console.log(fid);
       wx.navigateTo({
-        url: '/pages/detail/detail?fid=' + fid,
+        url: '/pages/list/list?fid=' + fid,
       })
     }).catch(err => {
       console.log(err)

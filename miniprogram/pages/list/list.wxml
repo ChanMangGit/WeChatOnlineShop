@@ -1,0 +1,11 @@
+<!--pages/list/list.wxml-->
+<view wx:for="{{list}}" wx:key="{{index}}">
+  <view bindtap='jumpDetail'>
+    <van-card
+  price="{{item.price}}"
+  title="{{item.name}}"
+  thumb="{{item.picUrl}}"
+  data-fid="{{item.fid}}"
+/>
+  </view>  
+</view>

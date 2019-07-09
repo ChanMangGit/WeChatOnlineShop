@@ -1,5 +1,5 @@
 <!-- 搜索框 -->
-<van-search value="{{ value }}" placeholder="只能搜HUAWEI P30/P20/P30 Pro/p20 Pro" bind:search="onSearch"/>
+<van-search value="{{ value }}" placeholder="模糊查询 huawei/p30/20/pro" bind:search="onSearch"/>
 <!-- 分类商品列表 左侧导航栏 右侧商品 -->
 <view class='productNav'>
   <!-- 左侧 -->

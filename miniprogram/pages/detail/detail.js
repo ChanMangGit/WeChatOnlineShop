@@ -28,7 +28,44 @@ Page({
     // 保存用户openId
     openId:[],
     // 保存购买数量
-    num:1
+    num:1,
+    // 视频覆盖层是否显示
+    isShow:false,
+    // 是否自动播放
+    auto:false
+  },
+  // 覆盖层确认按钮
+  confirm(){
+    this.setData({
+      isShow: true,
+      auto: true
+    })
+  },
+  // 覆盖层取消按钮
+  cancel(){
+    this.setData({
+      isShow:true,
+      auto:false
+    })
+  },
+  // 判断是否为wifi
+  isWifi(){
+    var $this = this;
+    wx.getNetworkType({
+      success: function(res) {
+        if(res.networkType=="wifi"){
+          $this.setData({
+            auto:true,
+            isShow:true
+          })
+        }else{
+          $this.setData({
+            auto: false,
+            isShow: false
+          })
+        }
+      },
+    })
   },
   // 数量按钮
   add(){
@@ -193,7 +230,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.isWifi();
   },
 
   /**

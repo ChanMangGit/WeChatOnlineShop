@@ -142,3 +142,35 @@ scroll-view{
 .van-dialog__message{
   font-size: 30rpx;
 }
+/* 视频样式 */
+.productVideo{
+  width: 100%;
+}
+/* 覆盖层样式 */
+.noWifi{
+  width: 100%;
+  height: 450rpx;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+.coverText{
+  color: #fff;
+  font-size: 30rpx;
+  text-align:center;
+  margin-top:125rpx;
+}
+.coverBtnBorder{
+  display: flex;
+  justify-content: center;
+}
+.coverBtn{
+  margin: 10rpx 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.coverBtn>image{
+  width: 100%;
+  height: 100%;
+}
